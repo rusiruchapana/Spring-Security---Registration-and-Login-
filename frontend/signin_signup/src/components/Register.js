@@ -1,4 +1,12 @@
+import { useState } from "react";
+
 function Register(){
+
+    const[firstName,setFirstName] = useState("");
+    const[lastName,setLastName] = useState("");
+    const[email,setEmail] = useState("");
+    const[password,setPassword] = useState("");
+
     return(
         <>
             <div class="bg-gray-100 h-screen flex items-center justify-center">
