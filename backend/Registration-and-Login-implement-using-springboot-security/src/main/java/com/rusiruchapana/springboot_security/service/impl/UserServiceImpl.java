@@ -7,9 +7,12 @@ import com.rusiruchapana.springboot_security.repository.RoleRepository;
 import com.rusiruchapana.springboot_security.repository.UserRepository;
 import com.rusiruchapana.springboot_security.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.List;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     public UserServiceImpl(UserRepository userRepository,RoleRepository roleRepository) {
@@ -20,7 +23,7 @@ public class UserServiceImpl implements UserService {
     private RoleRepository roleRepository;
 
     @Override
-    public UserDto saveUser(UserDto userDto) {
+    public void saveUser(UserDto userDto) {
 
         User user = new User();
         user.setName(userDto.getFirstName()+ " " +userDto.getLastName());
@@ -34,7 +37,7 @@ public class UserServiceImpl implements UserService {
         user.setRoles(Arrays.asList(role));
         userRepository.save(user);
 
-        return userDto;
+
     }
 
     private Role checkExist(){

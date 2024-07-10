@@ -21,9 +21,9 @@ public class AuthController {
 
 
     @PostMapping("/save-user")
-    public UserDto saveUser( @RequestBody UserDto userDto){
-        UserDto userDto1 = userService.saveUser(userDto);
-        return userDto1;
+    public String saveUser( @RequestBody UserDto userDto){
+        userService.saveUser(userDto);
+        return "Succesfully registered";
     }
 
 }
